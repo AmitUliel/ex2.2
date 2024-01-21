@@ -42,19 +42,23 @@ class TriangleClassifier {
 	        }	       
 	}
 
+		// if error
 		private static boolean isError(int a, int b, int c ) 
 		{
 	        return (a + b > c && b + c > b && b + c > a) && (a <= 0 || b <= 0 || c <= 0);
 	    }
-	
+		
+		// if can be a triangle
 	    private static boolean isTriangle(int a, int b, int c) 
 	    {
 	        return b + a > c && a + c > b && b + c > a;
 	    }
 
+	    // if Isosceles triangle
 	    private static boolean isIsosceles(int a, int b, int c) 
 	    {
-	        return a + b > c && a + c > b && b + c > a && ((b == c) || (a==c) || (b==a));
+	        return ( a + b > c && a + c > b && b + c > a && 
+	        		(((a == b) && (a!=c)) || ((a == c) && (a!=b)) || ((b == c) && (a!=c))) );
 	    }
 
 	    private static boolean isEquilateral(int a, int b, int c ) 
